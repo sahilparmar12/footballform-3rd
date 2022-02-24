@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="styling_of_page.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+</script>
+
+<script src="data.js">
+</script>
+</head>
+<body>
+<div id="blue">
+
+            <div id="form_heading">
+                <span id="text_heading"> Football Registration Form </span> 
+            </div>
+
+            <div id="form_body" >
+                <form  id="registrationForm" name="myform" method="post">
+
+                    <div id="firstline" class="border_at_btm">
+						
+						<div class="threediv inside_div_padding border_on_right" >
+                            USERNAME  <button type="button" name="act" id="retrival" value="Retrieve" formmethod="get" onclick="callAjax();">Retrieve</button><br>
+                            <input type="text" name="uname"
+                             id="username" class="text_input_height div_margin" placeholder="What is your user name">
+                            <div id="user_name_err" class="err_msg"></div>
+                       </div>
+									
+                        <div class="threediv border_on_right inside_div_padding " >
+                            <label class="required" >FIRST NAME </label><br> 
+                            <input name="fname"  type="text"  id="firstName"  class="text_input_height div_margin" placeholder="What is your first name" autofocus>
+                            <div id="first_name_err" class="err_msg "></div>
+                        </div>
+                        <div class="threediv inside_div_padding " >
+                             LAST NAME <br> 
+                             <input type="text" name="lname" id="lname" class="text_input_height div_margin" placeholder="What is your last name">
+                             <div id="last_name_err" class="err_msg"></div>
+                        </div>
+
+						
+                    </div>
+                    
+                    <div id="secondline" class="border_at_btm">
+
+                        <div id="phone_no" class="threediv border_on_right inside_div_padding">
+                            <div id="code">
+                                <label for="">CODE</label> <br>
+                                <select name="code" id="ccode" class="div_margin" >
+                                    <option value="+92">+92</option>
+                                    <option value="+91" selected>+91</option>
+                                    <option value="+93">+93</option>
+                                    <option value="+1">+1</option>
+                                </select>
+                            </div>
+                            <div id="number">
+                            <label class="required">PHONE NUMBER </label><br> 
+                            <input type="text"  name="pno" id="pno"class="text_input_height div_margin" placeholder="What is the best @ to reach you?">
+                            <div id="pno_err" class="err_msg"></div></div>
+                        </div>
+                        <div class="threediv border_on_right inside_div_padding">
+                            <label class="required">EMAIL</label>
+                            <label class="switch">
+                                <input type="checkbox" id="togglebtn">
+                                <span class="slider round"></span>
+                              </label> <br> 
+                            <input type="email" name="email"  id="email" disabled class="text_input_height" placeholder="What is your e-mail address?">
+                            <div id="email_err" class="err_msg border_on_"> </div>
+                        </div>
+                        <div id="age" class="threediv inside_div_padding">
+                            <label class="required ">AGE</label> <br> 
+                            <select name="age"  class="text_input_height div_margin" id="agelist" >
+                                <option value="" selected>Select age group</option>
+                                <option value="15-19">15-19 years</option>
+                                <option value="20-24">20-24 years</option>
+                                <option value="25-29">25-29 years</option>
+                                <option value="30-34">30-34 years</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div id="thirdline" class="border_at_btm">
+
+                        <div id="desired_team" class="fourdiv border_on_right inside_div_padding">
+                            <label class="required">DESIRED TEAM </label><br> 
+                        <input type="radio" class="radiobtn" value="CHELSEA" name="desiredteam" onclick="checkRadio();" >CHELSEA <br>
+                        <input type="radio" class="radiobtn" value="MANCHESTER UNITED" name="desiredteam" onclick="checkRadio();"> MANCHESTER UNITED <br>
+                        <input type="radio" class="radiobtn" value="LIVERPOOL" name="desiredteam" onclick="checkRadio();"> LIVERPOOL <br>
+                        <input type="radio" class="radiobtn" value="BARCELONA" name="desiredteam" onclick="checkRadio();"> BARCELONA <br>
+                    </div>
+            
+                    <div id="desired_position" class="fourdiv border_on_right inside_div_padding" >
+                        <label class="required" >DESIRED POSTION </label><br>
+                        <label><input type="checkbox" name="pos" value="GOAL KEEPER" onclick="checkButton();" >GOAL KEEPER</label> <br>
+                        <label><input type="checkbox" name="pos" value="OFFENSIVE" onclick="checkButton();" >OFFENSIVE</label> <br>
+                        <label><input type="checkbox" name="pos" value="DEFENSE" onclick="checkButton();">DEFENSE</label> <br>
+                        <label><input type="checkbox" name="pos" value="RECEIVER" onclick="checkButton();">RECEIVER</label> <br>
+            
+                    </div>
+            
+                    <div id="address" class="fourdiv border_on_right inside_div_padding">
+                        ADDRESS <br>
+                        <textarea  id="addresstextbox" rows=4 name="address" class="text_input_height div_margin"></textarea>
+            
+                    </div>
+                    <div  class="fourdiv inside_div_padding">
+                        PIN <br>
+                        <input type="text" name="pin" id="pin"class="text_input_height div_margin" placeholder="Enter your Pin code">
+                        <div id="pin_err" class="err_msg"></div>
+                    </div>
+
+                    </div>
+
+                    <div id="countrydata">
+                        <div > <span class="required"> COUNTRY</span> <br>
+                        <select id="country" name="country" class="text_input_height div_margin">
+                            <option value="">SELECT COUNTRY</option>
+                        </select></div>
+                        <div ><span class="required"> STATE</span> <br>
+                        <select id="state" name="state" class="text_input_height div_margin" disabled>
+                            <option value="">SELECT STATE</option>
+                        </select></div>
+                        <div > <span class="required"> CITY</span> <br>
+                        <select id="city" name="city" class="text_input_height div_margin" disabled>
+                            <option value="">SELECT City</option>
+                        </select></div>
+                    
+                    </div>
+
+                    <div id="submitbutton">
+                        <input type="button" class="submitbtn"name="act" formmethod="post" onclick="sendDataJson(event);" id="submitbtn" disabled value="Phewww! Let's submit it" >
+                        <button type="button" class="submitbtn" hidden name="act" id="update" value="Retrieve" formmethod="put" onclick="sendDataJsonForUpdate();" disabled>Phewww! Let's submit it</button>
+                    </div>
+
+                    
+
+                </form>
+            </div>
+
+                        
+</div>
+
+     <script src="validations.js">   
+     </script>   
+     <script src="datafetch.js">   
+     </script> 
+     
+</body>
+</html>
+
